@@ -69,7 +69,7 @@ def largest_factor(n):
     if n == 1:
         return 1
     t = n - 1
-    while t != 1 or n%t != 0:
+    while t != 1 and n%t != 0:
         t -= 1
     return t
 
@@ -94,13 +94,17 @@ def hailstone(n):
     """
     "*** YOUR CODE HERE ***"
     if n == 1:
+        print(1)
         return 1
-    time = 0
+    time = 1
+    print(n)
     while n != 1:
         if n % 2 == 0:
-            n /= 2
+            n //= 2
+            print(n)
         else:
             n *= 3
             n += 1
+            print(n)
         time += 1
     return time

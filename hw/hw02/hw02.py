@@ -33,7 +33,7 @@ def product(n, term):
     """
     "*** YOUR CODE HERE ***"
     if n == 1:
-        return 1
+        return term(1)
     else:
         return term(n) * product(n-1, term)
 
@@ -58,7 +58,9 @@ def accumulate(fuse, start, n, term):
     19
     """
     "*** YOUR CODE HERE ***"
-    if n == 0:
+    if n == 1:
+        return fuse(start, term(1))
+    elif n < 1:
         return start
     else:
         return accumulate(fuse, fuse(start, term(n)), n-1, term)
@@ -91,7 +93,7 @@ def product_using_accumulate(n, term):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(product_using_accumulate)).body[0].body]
     ['Expr', 'Return']
     """
-    return accumulate(mul, 0, n, term)
+    return accumulate(mul, 1, n, term)
 
 
 def make_repeater(f, n):
@@ -111,4 +113,4 @@ def make_repeater(f, n):
     if n == 1:
         return f
     else:
-        return make_repeater(f, n-1)
+        return lambda x: make_repeater(f, n-1)(f(x))
