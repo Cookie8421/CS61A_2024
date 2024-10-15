@@ -5,7 +5,7 @@ test = {
     {
       'cases': [
         {
-          'answer': '28893e4c2667b89b674188e063237622',
+          'answer': 'A lambda expression does not automatically bind the function that it returns to a name.',
           'choices': [
             'A lambda expression does not automatically bind the function that it returns to a name.',
             'A lambda expression cannot have more than two parameters.',
@@ -13,12 +13,12 @@ test = {
             'A def statement can only have one line in its body.'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'Which of the following statements describes a difference between a def statement and a lambda expression?'
         },
         {
-          'answer': '2ad3e8f40fd1b51f9a33075a0048a5d6',
+          'answer': 'two',
           'choices': [
             'one',
             'two',
@@ -26,7 +26,7 @@ test = {
             'Not enough information'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': r"""
           How many formal parameters does the following lambda expression have?
@@ -34,7 +34,7 @@ test = {
           """
         },
         {
-          'answer': 'caa97dd5ae148cd72efcf98ef6f4b913',
+          'answer': 'When the function returned by the lambda expression is called.',
           'choices': [
             'When the function returned by the lambda expression is called.',
             'When you assign the lambda expression to a name.',
@@ -42,7 +42,7 @@ test = {
             'When you pass the lambda expression into another function.'
           ],
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False,
           'question': 'When is the return expression of a lambda expression executed?'
         }
@@ -56,32 +56,26 @@ test = {
           'code': r"""
           >>> # If Python displays <function...>, type Function, if it errors type Error, if it displays nothing type Nothing
           >>> lambda x: x  # A lambda expression with one parameter x
-          4f02258d689b15b516174b381ad2aef8
-          # locked
+          Function
           >>> a = lambda x: x  # Assigning a lambda function to the name a
           >>> a(5)
-          d330e4294a4387ed4475ee0e95da5386
-          # locked
+          5
           >>> (lambda: 3)()  # Using a lambda expression as an operator in a call exp.
-          0f10194daf41a11a30f4adc80d959f28
-          # locked
+          3
           >>> b = lambda x, y: lambda: x + y # Lambdas can return other lambdas!
           >>> c = b(8, 4)
           >>> c
-          4f02258d689b15b516174b381ad2aef8
-          # locked
+          Function
           >>> c()
-          bb673dbcb74b8a503ccca3a123f8ac69
-          # locked
+          12
           >>> d = lambda f: f(4)  # They can have functions as arguments as well
           >>> def square(x):
           ...     return x * x
           >>> d(square)
-          9024755e0e6b1907cc6e80a977eb6fa3
-          # locked
+          16
           """,
           'hidden': False,
-          'locked': True,
+          'locked': False,
           'multiline': False
         },
         {
